@@ -61,6 +61,19 @@ extern atomic_long_t calc_load_tasks;
 extern void calc_global_load_tick(struct rq *this_rq);
 extern long calc_load_fold_active(struct rq *this_rq, long adjust);
 
+#ifdef CONFIG_HZ_300
+/*
+ * Tick interval becomes to 3333333 due to
+ * rounding error when HZ=300.
+ */
+#define MIN_SCHED_RAVG_WINDOW (3333333 * 6)
+#else
+/* Min window size (in ns) = 20ms */
+#define MIN_SCHED_RAVG_WINDOW 20000000
+#endif
+
+/* Max window size (in ns) = 1s */
+#define MAX_SCHED_RAVG_WINDOW 1000000000
 extern unsigned int sched_ravg_window;
 
 #ifdef CONFIG_SMP
@@ -2200,7 +2213,7 @@ extern unsigned long
 boosted_cpu_util(int cpu, unsigned long other_util);
 #endif
 
-
+extern inline unsigned long cpu_util_freq(int cpu);
 
 struct eenv_cpu {
 	/* CPU ID, must be in cpus_mask */
