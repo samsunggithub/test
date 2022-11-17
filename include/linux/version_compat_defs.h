@@ -28,4 +28,23 @@
 typedef unsigned int __poll_t;
 #endif
 
+<<<<<<< HEAD
+=======
+#ifndef EPOLLHUP
+#define EPOLLHUP POLLHUP
+#endif
+
+#ifndef EPOLLERR
+#define EPOLLERR POLLERR
+#endif
+
+#ifndef EPOLLIN
+#define EPOLLIN POLLIN
+#endif
+
+#ifndef EPOLLRDNORM
+#define EPOLLRDNORM POLLRDNORM
+#endif
+
+>>>>>>> 7ec33ac97335 (gpu: mali: port r40p0)
 #endif /* _VERSION_COMPAT_DEFS_H_ */

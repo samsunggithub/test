@@ -31,7 +31,12 @@ ifeq ($(CONFIG_MALI_DDK_VERSION),y)
 	ifeq ($(CONFIG_MALI_BIFROST_R32P1),y)
 		obj-y += bv_r32p1/
 	endif
+<<<<<<< HEAD
 	ifeq ($(CONFIG_MALI_BIFROST_R38P1),y)
 		obj-y += bv_r38p1/
+=======
+	ifeq ($(CONFIG_MALI_BIFROST_R40P0),y)
+		obj-y += bv_r40p0/
+>>>>>>> 7ec33ac97335 (gpu: mali: port r40p0)
 	endif
 endif
