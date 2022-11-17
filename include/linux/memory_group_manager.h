@@ -43,6 +43,8 @@ struct memory_group_manager_import_data;
  * @mgm_free_page:            Callback to free physical memory in a group
  * @mgm_get_import_memory_id: Callback to get the group ID for imported memory
  * @mgm_update_gpu_pte:       Callback to modify a GPU page table entry
+ * @mgm_pte_to_original_pte:  Callback to get the original PTE entry as given
+ *                            to mgm_update_gpu_pte
  * @mgm_vmf_insert_pfn_prot:  Callback to map a physical memory page for the CPU
  */
 struct memory_group_manager_ops {
@@ -127,7 +129,11 @@ struct memory_group_manager_ops {
 	u64 (*mgm_update_gpu_pte)(struct memory_group_manager_device *mgm_dev,
 			int group_id, int mmu_level, u64 pte);
 
+<<<<<<< HEAD
 /*
+=======
+	/**
+>>>>>>> f349a80ffd52 (include/linux: mali mm)
 	 * mgm_pte_to_original_pte - Undo any modification done during mgm_update_gpu_pte()
 	 *
 	 * @mgm_dev:   The memory group manager through which the request
@@ -148,7 +154,11 @@ struct memory_group_manager_ops {
 	u64 (*mgm_pte_to_original_pte)(struct memory_group_manager_device *mgm_dev, int group_id,
 				       int mmu_level, u64 pte);
 
+<<<<<<< HEAD
 	/*
+=======
+	/**
+>>>>>>> f349a80ffd52 (include/linux: mali mm)
 	 * mgm_vmf_insert_pfn_prot - Map a physical page in a group for the CPU
 	 *
 	 * @mgm_dev:   The memory group manager through which the request
@@ -205,8 +215,14 @@ enum memory_group_manager_import_type {
  * struct memory_group_manager_import_data - Structure describing the imported
  *                                           memory
  *
+<<<<<<< HEAD
  * @type:  - type of imported memory
  * @u:     - Union describing the imported memory
+=======
+ * @type:      type of imported memory
+ * @u:         Union describing the imported memory
+ * @u.dma_buf: imported memory
+>>>>>>> f349a80ffd52 (include/linux: mali mm)
  *
  */
 struct memory_group_manager_import_data {
