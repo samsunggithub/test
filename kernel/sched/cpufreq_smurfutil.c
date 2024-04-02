@@ -39,6 +39,8 @@
 
 #define SMUGOV_KTHREAD_PRIORITY	25
 
+unsigned long boosted_cpu_util(int cpu);
+
 /* Window size (in ns) */
 unsigned int sched_ravg_window3 = MIN_SCHED_RAVG_WINDOW;
 
@@ -238,7 +240,7 @@ static void smugov_get_util(unsigned long *util, unsigned long *max, int cpu)
 	*util = min(rq->cfs.avg.util_avg, cfs_max);
 	*max = cfs_max;
 
-	*util = boosted_cpu_util(cpu, &loadcpu->walt_load);
+	*util = boosted_cpu_util(cpu);
 }
 
 static void smugov_set_iowait_boost(struct smugov_cpu *sg_cpu, u64 time,

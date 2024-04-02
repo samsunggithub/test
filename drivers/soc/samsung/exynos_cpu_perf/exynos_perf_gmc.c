@@ -16,6 +16,7 @@
 #include <linux/sched.h>
 #include <linux/gpu_cooling.h>
 #include <linux/of.h>
+#include <linux/mali_exynos_if.h>
 #include <soc/samsung/cal-if.h>
 #include <soc/samsung/exynos-devfreq.h>
 #include <linux/pm_qos.h>
@@ -39,9 +40,6 @@
 #define GAME_NORMAL_CL0_MAX	1950000             // 2002000
 #define GAME_NORMAL_MIF_MAX	2093000             // 2730000
 #define GAME_NORMAL_MIF_MIN	1539000             // 421000
-
-
-static struct emstune_mode_request emstune_req_gmc;
 
 extern unsigned int get_cpufreq_max_limit(void);
 extern unsigned int get_ocp_clipped_freq(void);

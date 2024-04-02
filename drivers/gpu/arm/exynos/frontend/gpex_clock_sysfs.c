@@ -23,6 +23,7 @@
 #include <gpex_dvfs.h>
 #include <gpex_utils.h>
 #include <gpex_clboost.h>
+#include <linux/exynos-ucc.h>
 
 #include "gpex_clock_internal.h"
 

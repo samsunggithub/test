@@ -37,14 +37,14 @@ static struct regmap *map;
 static int first = 1;
 
 // Switches
-static int moro_sound, out3_ena, eq, headphone_mono, mic, reset = 0;
+static int moro_sound, eq, headphone_mono, mic, reset = 0;
 
 // Gains
 static int headphone_gain_l, headphone_gain_r, earpiece_gain, eq_gains[5],
 	mic_down_gain, mic_up_gain, mic_hp_gain;
 
 // Mixers
-static int out2l_mix_source, out2r_mix_source, out3l_mix_source, out3r_mix_source,
+static int out2l_mix_source, out2r_mix_source,
 	eq1_mix_source, eq2_mix_source;
 
 /*****************************************/
@@ -948,7 +948,7 @@ static ssize_t reset_store(struct device *dev, struct device_attribute *attr,
 
 static ssize_t reg_dump_show(struct device *dev, struct device_attribute *attr, char *buf)
 {
-	unsigned int out3l_mix2, out3r_mix2, eq_b1, eq_b2, eq_b3, eq_b4, eq_b5, mic3r, mic3l, mic4l, mic1l;
+	unsigned int out3l_mix2, out3r_mix2, eq_b1, eq_b2, eq_b3, eq_b4, eq_b5, mic3l, mic4l, mic1l;
 
 	moon_read(MADERA_OUT3LMIX_INPUT_2_SOURCE, &out3l_mix2);
 

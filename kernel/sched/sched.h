@@ -2210,7 +2210,7 @@ struct sched_walt_cpu_load {
 
 #ifdef CONFIG_SCHED_WALT
 extern unsigned long
-boosted_cpu_util(int cpu, unsigned long other_util);
+boosted_cpu_util(int cpu);
 #endif
 
 extern inline unsigned long cpu_util_freq(int cpu);

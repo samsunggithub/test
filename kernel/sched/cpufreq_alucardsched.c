@@ -54,6 +54,8 @@
 #define DEFAULT_RATE_LIMIT_SUSP_NS ((s64)(80000 * NSEC_PER_USEC))
 #endif
 
+unsigned long boosted_cpu_util(int cpu);
+
 struct acgov_tunables {
 	struct gov_attr_set attr_set;
 	unsigned int up_rate_limit_us;
@@ -433,7 +435,7 @@ static void acgov_get_util(unsigned long *util, unsigned long *max, u64 time)
 	*util = min(rq->cfs.avg.util_avg + rt, max_cap);
 #ifdef CONFIG_SCHED_WALT
 	if (!walt_disabled && sysctl_sched_use_walt_cpu_util)
-		*util = boosted_cpu_util(cpu, &loadcpu->walt_load);
+		*util = boosted_cpu_util(cpu);
 #endif
 	*max = max_cap;
 }

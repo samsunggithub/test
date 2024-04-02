@@ -1,4 +1,4 @@
-/*
+6/*
  * CPUFreq governor based on scheduler-provided CPU utilization data.
  *
  * Copyright (C) 2016, Intel Corporation
@@ -28,6 +28,8 @@
 #define DEFAULT_SUSPEND_MAX_FREQ_SILVER 1324800
 #define DEFAULT_SUSPEND_MAX_FREQ_GOLD 1209600
 #define DEFAULT_SUSPEND_CAPACITY_FACTOR 10
+
+unsigned long boosted_cpu_util(int cpu);
 
 /* Window size (in ns) */
 unsigned int sched_ravg_window5 = MIN_SCHED_RAVG_WINDOW;
@@ -239,7 +241,7 @@ static void eugov_get_util(unsigned long *util, unsigned long *max, int cpu)
 	*util = min(rq->cfs.avg.util_avg, cfs_max);
 	*max = cfs_max;
 
-	*util = boosted_cpu_util(cpu, &loadcpu->walt_load);
+	*util = boosted_cpu_util(cpu);
 }
 
 static void eugov_set_iowait_boost(struct eugov_cpu *eg_cpu, u64 time,

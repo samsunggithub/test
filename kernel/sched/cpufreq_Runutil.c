@@ -22,7 +22,7 @@
 #include "ems/ems.h"
 
 #include <trace/events/power.h>
-
+#undef LATENCY_MULTIPLIER
 #define LATENCY_MULTIPLIER  (5000)
 #define SUGOV_KTHREAD_PRIORITY	50
 
@@ -909,7 +909,6 @@ static int sugov_init(struct cpufreq_policy *policy)
 {
 	struct sugov_policy *sg_policy;
 	struct sugov_tunables *tunables;
-	unsigned int lat;
 	int ret = 0;
     unsigned int walt_ravg_window;
 

@@ -165,7 +165,6 @@ config CPU_FREQ_DEFAULT_GOV_HELIX_SCHEDUTIL
 	  have a look at the help section of that governor. The fallback
 	  governor will be 'performance'.
 
-<<<<<<< HEAD
 config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	bool "interactive"
 	select CPU_FREQ_GOV_INTERACTIVE
@@ -174,8 +173,6 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	  you to get a full dynamic cpu frequency capable system by simply
 	  loading your cpufreq low-level hardware driver, using the
 	  'interactive' governor for latency-sensitive workloads.
-=======
->>>>>>> b220f48b4f84 (cpu governor: added Helix_schedutil from Linux 4.9.xx)
 
 endchoice
 
@@ -403,8 +400,6 @@ config CPU_FREQ_GOV_HELIX_SCHEDUTIL
 	  both cases.
 	  If in doubt, say N.
 
-<<<<<<< HEAD
-=======
 config CPU_FREQ_GOV_PWRUTILX
 	bool "'pwrutilx' cpufreq policy governor"
 	depends on CPU_FREQ && SMP
@@ -514,7 +509,6 @@ config CPU_FREQ_GOV_DARKNESSSCHED
 
 comment "CPU frequency scaling drivers"
 
->>>>>>> b63a9a0dd88c (cpu governors: added some schedutil govs from Linux 4.9.xx)
 config CPUFREQ_DT
 	tristate "Generic DT based cpufreq driver"
 	depends on HAVE_CLK && OF
@@ -540,7 +534,7 @@ config CPUFREQ_DT_PLATDEV
 
 config FINGERPRINT_BOOST
 	bool "Fingerprint Boost"
-	default y
+	default n
 	help
 	  Boosts available CPUs to max frequency on fingerprint sensor input.
 
