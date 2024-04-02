@@ -24,7 +24,7 @@ config IOSCHED_DEADLINE
 
 config IOSCHED_MAPLE
 	tristate "Maple I/O scheduler"
-	default n
+	default y
 
 config IOSCHED_CFQ
 	tristate "CFQ I/O scheduler"
@@ -46,7 +46,7 @@ config CFQ_GROUP_IOSCHED
 
 config IOSCHED_FIOPS
 	tristate "IOPS based I/O scheduler"
-	default n
+	default y
 	---help---
 	  This is an IOPS based I/O scheduler. It will try to distribute
           IOPS equally among all processes in the system. It's mainly for
@@ -54,7 +54,7 @@ config IOSCHED_FIOPS
 
 config IOSCHED_SIO
 	tristate "Simple I/O scheduler"
-	default n
+	default y
 	---help---
 	  The Simple I/O scheduler is an extremely simple scheduler,
 	  based on noop and deadline, that relies on deadlines to
@@ -64,14 +64,14 @@ config IOSCHED_SIO
 
 config IOSCHED_ZEN
 	tristate "Zen I/O scheduler"
-	default n
+	default y
 	---help---
 	  FCFS, dispatches are back-inserted, deadlines ensure fairness.
 	  Should work best with devices where there is no travel delay.
 
 config IOSCHED_ANXIETY
 	tristate "Anxiety I/O scheduler"
-	default n
+	default y
 	---help---
 	  The Anxiety I/O scheduler prioritizes latency over everything
 	  else. When a request comes in, it will use a lighweight
