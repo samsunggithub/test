@@ -288,14 +288,13 @@ static void smugov_get_util(unsigned long *util, unsigned long *max, int cpu)
 {
 	struct rq *rq = cpu_rq(cpu);
 	unsigned long cfs_max;
-	struct smugov_cpu *loadcpu = &per_cpu(smugov_cpu, cpu);
-
+	
 	cfs_max = arch_scale_cpu_capacity(NULL, cpu);
 
 	*util = min(rq->cfs.avg.util_avg, cfs_max);
 	*max = cfs_max;
 
-	*util = boosted_cpu_util(cpu,);
+	*util = boosted_cpu_util(cpu);
 }
 
 static void smugov_set_iowait_boost(struct smugov_cpu *sg_cpu, u64 time,

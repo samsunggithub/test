@@ -225,7 +225,6 @@ static void pwrgov_get_util(unsigned long *util, unsigned long *max, int cpu)
 {
 	struct rq *rq = cpu_rq(cpu);
 	unsigned long cfs_max;
-	struct pwrgov_cpu *loadcpu = &per_cpu(pwrgov_cpu, cpu);
 
 	cfs_max = arch_scale_cpu_capacity(NULL, cpu);
 

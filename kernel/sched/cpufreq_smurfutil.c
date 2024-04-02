@@ -193,7 +193,6 @@ static unsigned int get_next_freq(struct smugov_policy *sg_policy,
 	struct cpufreq_policy *policy = sg_policy->policy;
 	unsigned int freq = arch_scale_freq_invariant() ?
 				policy->cpuinfo.max_freq : policy->cur;
-	unsigned int capacity_factor, silver_max_freq, gold_max_freq;
 
 /*
 	const bool display_on = is_display_on();
@@ -233,7 +232,6 @@ static void smugov_get_util(unsigned long *util, unsigned long *max, int cpu)
 {
 	struct rq *rq = cpu_rq(cpu);
 	unsigned long cfs_max;
-	struct smugov_cpu *loadcpu = &per_cpu(smugov_cpu, cpu);
 
 	cfs_max = arch_scale_cpu_capacity(NULL, cpu);
 

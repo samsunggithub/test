@@ -421,7 +421,6 @@ static void acgov_get_util(unsigned long *util, unsigned long *max, u64 time)
 	struct rq *rq = cpu_rq(cpu);
 	unsigned long max_cap, rt;
 	s64 delta;
-	struct acgov_cpu *loadcpu = &per_cpu(acgov_cpu, cpu);
 
 	max_cap = arch_scale_cpu_capacity(NULL, cpu);
 

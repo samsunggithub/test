@@ -318,7 +318,6 @@ static void dkgov_get_util(unsigned long *util, unsigned long *max, u64 time)
 	struct rq *rq = cpu_rq(cpu);
 	unsigned long max_cap, rt;
 	s64 delta;
-    unsigned int sysctl_sched_use_walt_cpu_util;
 
 	max_cap = arch_scale_cpu_capacity(NULL, cpu);
 

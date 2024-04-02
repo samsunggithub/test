@@ -1,4 +1,4 @@
-6/*
+/*
  * CPUFreq governor based on scheduler-provided CPU utilization data.
  *
  * Copyright (C) 2016, Intel Corporation
@@ -193,7 +193,6 @@ static unsigned int get_next_freq(struct eugov_policy *eg_policy,
 	struct cpufreq_policy *policy = eg_policy->policy;
 	unsigned int freq = arch_scale_freq_invariant() ?
 				policy->cpuinfo.max_freq : policy->cur;
-	unsigned int capacity_factor, silver_max_freq, gold_max_freq;
 
 /*
 	const bool display_on = is_display_on();
@@ -234,7 +233,6 @@ static void eugov_get_util(unsigned long *util, unsigned long *max, int cpu)
 {
 	struct rq *rq = cpu_rq(cpu);
 	unsigned long cfs_max;
-	struct eugov_cpu *loadcpu = &per_cpu(eugov_cpu, cpu);
 
 	cfs_max = arch_scale_cpu_capacity(NULL, cpu);
 

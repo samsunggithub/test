@@ -40,6 +40,8 @@
 
 #define SMUGOV_KTHREAD_PRIORITY	50
 
+u64 walt_ktime_clock(void);
+
 unsigned long boosted_cpu_util(int cpu);
 
 /* Window size (in ns) */
@@ -239,7 +241,6 @@ static void smugov_get_util(unsigned long *util, unsigned long *max, int cpu)
 {
 	struct rq *rq = cpu_rq(cpu);
 	unsigned long cfs_max;
-	struct smugov_cpu *loadcpu = &per_cpu(smugov_cpu, cpu);
 
 	cfs_max = arch_scale_cpu_capacity(NULL, cpu);
 
