@@ -32,10 +32,6 @@ obj-$(CONFIG_CPU_FREQ_GOV_SCHEDUTIL) += cpufreq_schedutil.o
 obj-$(CONFIG_CPU_FREQ_GOV_BLU_SCHEDUTIL) += cpufreq_blu_schedutil.o
 obj-$(CONFIG_CPU_FREQ_GOV_Runutil) += cpufreq_Runutil.o
 obj-$(CONFIG_CPU_FREQ_GOV_PIXEL_SCHEDUTIL) += cpufreq_pixel_schedutil.o
-<<<<<<< HEAD
-=======
 obj-$(CONFIG_CPU_FREQ_GOV_HELIX_SCHEDUTIL) += cpufreq_helix_schedutil.o
-obj-$(CONFIG_CPU_FREQ_GOV_TS_SCHEDUTIL) += cpufreq_ts_schedutil.o
->>>>>>> b220f48b4f84 (cpu governor: added Helix_schedutil from Linux 4.9.xx)
 obj-$(CONFIG_MEMBARRIER) += membarrier.o
 obj-$(CONFIG_SCHED_EMS) += ems/
