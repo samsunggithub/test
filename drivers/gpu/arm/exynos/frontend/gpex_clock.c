@@ -76,11 +76,8 @@ u64 gpex_clock_get_time_busy(int level)
 /*******************************************
  * static helper functions
  ******************************************/
-<<<<<<< HEAD
-int gpex_clock_update_config_data_from_dt()
-=======
+
 static int gpex_clock_update_config_data_from_dt()
->>>>>>> 383b20a4fde7 (gpu: mali: port r38p1)
 {
 	int ret = 0;
 	struct freq_volt *fv_array;
