@@ -127,6 +127,27 @@ struct memory_group_manager_ops {
 	u64 (*mgm_update_gpu_pte)(struct memory_group_manager_device *mgm_dev,
 			int group_id, int mmu_level, u64 pte);
 
+/*
+	 * mgm_pte_to_original_pte - Undo any modification done during mgm_update_gpu_pte()
+	 *
+	 * @mgm_dev:   The memory group manager through which the request
+	 *             is being made.
+	 * @group_id:  A physical memory group ID. The meaning of this is
+	 *             defined by the systems integrator. Its valid range is
+	 *             0 .. MEMORY_GROUP_MANAGER_NR_GROUPS-1.
+	 * @mmu_level: The level of the page table entry in @ate.
+	 * @pte:       The page table entry to restore the original representation for,
+	 *             in LPAE or AArch64 format (depending on the driver's configuration).
+	 *
+	 * Undo any modifications done during mgm_update_gpu_pte().
+	 * This function allows getting back the original PTE entry as given
+	 * to mgm_update_gpu_pte().
+	 *
+	 * Return: PTE entry as originally specified to mgm_update_gpu_pte()
+	 */
+	u64 (*mgm_pte_to_original_pte)(struct memory_group_manager_device *mgm_dev, int group_id,
+				       int mmu_level, u64 pte);
+
 	/*
 	 * mgm_vmf_insert_pfn_prot - Map a physical page in a group for the CPU
 	 *
