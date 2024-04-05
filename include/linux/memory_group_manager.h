@@ -129,12 +129,8 @@ struct memory_group_manager_ops {
 	u64 (*mgm_update_gpu_pte)(struct memory_group_manager_device *mgm_dev,
 			int group_id, int mmu_level, u64 pte);
 
-<<<<<<< HEAD
-/*
-=======
-	/**
->>>>>>> f349a80ffd52 (include/linux: mali mm)
-	 * mgm_pte_to_original_pte - Undo any modification done during mgm_update_gpu_pte()
+/**
+      * mgm_pte_to_original_pte - Undo any modification done during mgm_update_gpu_pte()
 	 *
 	 * @mgm_dev:   The memory group manager through which the request
 	 *             is being made.
@@ -143,29 +139,25 @@ struct memory_group_manager_ops {
 	 *             0 .. MEMORY_GROUP_MANAGER_NR_GROUPS-1.
 	 * @mmu_level: The level of the page table entry in @ate.
 	 * @pte:       The page table entry to restore the original representation for,
-	 *             in LPAE or AArch64 format (depending on the driver's configuration).
+     *             in LPAE or AArch64 format (depending on the driver's configuration).
 	 *
-	 * Undo any modifications done during mgm_update_gpu_pte().
+     * Undo any modifications done during mgm_update_gpu_pte().
 	 * This function allows getting back the original PTE entry as given
 	 * to mgm_update_gpu_pte().
 	 *
-	 * Return: PTE entry as originally specified to mgm_update_gpu_pte()
-	 */
+     * Return: PTE entry as originally specified to mgm_update_gpu_pte()
+	**/
 	u64 (*mgm_pte_to_original_pte)(struct memory_group_manager_device *mgm_dev, int group_id,
 				       int mmu_level, u64 pte);
-
-<<<<<<< HEAD
-	/*
-=======
-	/**
->>>>>>> f349a80ffd52 (include/linux: mali mm)
-	 * mgm_vmf_insert_pfn_prot - Map a physical page in a group for the CPU
-	 *
-	 * @mgm_dev:   The memory group manager through which the request
+    
+    /**
+	 * mgm_vmf_insert_pfn_prot - Map a physical page in a group for the CP
+     *
+     * @mgm_dev:   The memory group manager through which the request
 	 *             is being made.
 	 * @group_id:  A physical memory group ID. The meaning of this is
-	 *             defined by the systems integrator. Its valid range is
-	 *             0 .. MEMORY_GROUP_MANAGER_NR_GROUPS-1.
+     *             defined by the systems integrator. Its valid range i
+     *             0 .. MEMORY_GROUP_MANAGER_NR_GROUPS-1.
 	 * @vma:       The virtual memory area to insert the page into.
 	 * @addr:      A virtual address (in @vma) to assign to the page.
 	 * @pfn:       The kernel Page Frame Number to insert at @addr in @vma.
@@ -178,7 +170,7 @@ struct memory_group_manager_ops {
 	 *
 	 * Return: Type of fault that occurred or VM_FAULT_NOPAGE if the page
 	 *         table entry was successfully installed.
-	 */
+     */
 	vm_fault_t (*mgm_vmf_insert_pfn_prot)(
 		struct memory_group_manager_device *mgm_dev, int group_id,
 		struct vm_area_struct *vma, unsigned long addr,
