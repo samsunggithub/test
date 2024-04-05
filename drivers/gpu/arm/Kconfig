@@ -9,9 +9,6 @@
 #
 #
 
-config ANDROID_VERSION
-	string
-	option env="PLATFORM_VERSION"
 
 menu "ARM GPU Configuration"
 
@@ -27,14 +24,16 @@ menuconfig MALI_DDK_VERSION
 choice
 	prompt "version Configuration"
 	depends on MALI_DDK_VERSION
-	default MALI_BIFROST_R40P0 if ANDROID_VERSION >= "12"
+	default MALI_BIFROST_R40P0 if ANDROID_VERSION >= "120000"
 	help
 	  Select the gpu support version.
 
 config MALI_BIFROST_R40P0
 	depends on MALI_DDK_VERSION
 	bool "Bifrost r40p0 driver for Android S"
-	
+endchoice
+
+
 if MALI_BIFROST_R40P0
 source "drivers/gpu/arm/bv_r40p0/Kconfig"
 endif
