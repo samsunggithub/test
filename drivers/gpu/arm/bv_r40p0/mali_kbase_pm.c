@@ -38,6 +38,9 @@
 
 #include <backend/gpu/mali_kbase_clk_rate_trace_mgr.h>
 
+#undef fallthrough
+#define fallthrough
+
 int kbase_pm_powerup(struct kbase_device *kbdev, unsigned int flags)
 {
 	return kbase_hwaccess_pm_powerup(kbdev, flags);

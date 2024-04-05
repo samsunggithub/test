@@ -44,6 +44,9 @@
 #include <mali_kbase_config_defaults.h>
 #include <mali_kbase_trace_gpu_mem.h>
 
+#undef fallthrough
+#define fallthrough
+
 #if MALI_JIT_PRESSURE_LIMIT_BASE
 
 /*

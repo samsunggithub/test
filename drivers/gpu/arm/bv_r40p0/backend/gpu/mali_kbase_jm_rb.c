@@ -39,6 +39,9 @@
 
 #include <mali_exynos_kbase_entrypoint.h>
 
+#undef fallthrough
+#define fallthrough
+
 /**
  * SLOT_RB_EMPTY - Return whether the specified ringbuffer is empty.
  *

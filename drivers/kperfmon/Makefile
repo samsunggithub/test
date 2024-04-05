@@ -14,12 +14,12 @@ endif
 ifeq ($(FLAG), 1)
 ifneq ($(shell [ -e $(srctree)/include/linux/olog.pb.h ] && echo exist), exist)
 FLAG=0
-$(warning "kperfmon: olog.pb.h file is missing.")
+#$(warning "kperfmon: olog.pb.h file is missing.")
 endif
 
 ifneq ($(shell [ -e $(srctree)/include/linux/perflog.h ] && echo exist), exist)
 FLAG=0
-$(warning "kperfmon: perflog.h file is missing.")
+#$(warning "kperfmon: perflog.h file is missing.")
 endif
 endif
 
