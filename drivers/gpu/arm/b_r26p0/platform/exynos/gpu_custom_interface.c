@@ -248,8 +248,6 @@ static ssize_t show_asv_table(struct device *dev, struct device_attribute *attr,
 	return ret;
 }
 
-<<<<<<< HEAD
-=======
 #ifdef CONFIG_GPU_REG_VOLTAGE
 static ssize_t show_volt_table(struct device *dev, struct device_attribute *attr, char *buf)
 {
@@ -319,7 +317,6 @@ static ssize_t set_volt_table(struct device *dev, struct device_attribute *attr,
 }
 #endif
 
->>>>>>> 90225efc2834 (GPU:RP29 - fix OC freq and select by user)
 #ifdef CONFIG_MALI_DVFS
 static int gpu_get_dvfs_table(struct exynos_context *platform, char *buf, size_t buf_size)
 {
