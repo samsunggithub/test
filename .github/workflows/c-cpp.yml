@@ -29,9 +29,9 @@ jobs:
           chmod +x avbtool.py
           sudo mv avbtool.py /usr/local/bin/avbtool
     - name: Kernel Build
-      run: ./build.sh d2s
+      run: ./build.sh d2x N
     - name: Upload Kernel Zip
       uses: actions/upload-artifact@v2
       with:
-        name: ThunderStormsKernel
+        name: StormsKernel
         path: ./build/*.zip
