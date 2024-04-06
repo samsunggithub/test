@@ -2,7 +2,7 @@ name: C/C++ CI
 
 on:
   workflow_dispatch:
-  
+
 jobs:
   build:
 
@@ -11,15 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Setup KernelSU
-      run: |
-          if [ -d "./KernelSU" ]; then
-            rm -rf "./KernelSU"
-          fi
-          if [ -d "./drivers/kernelsu" ]; then
-            rm -rf "./drivers/kernelsu"
-          fi
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main         
     - name: Install mkbootimg
       run: |
           sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev libc6-dev-i386 libncurses5 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
@@ -37,6 +28,16 @@ jobs:
           wget -q https://android.googlesource.com/platform/external/avb/+archive/refs/heads/master.tar.gz -O - | tar xzf - avbtool.py
           chmod +x avbtool.py
           sudo mv avbtool.py /usr/local/bin/avbtool
+              
+    - name: Setup KernelSU
+      run: |
+          if [ -d "./KernelSU" ]; then
+            rm -rf "./KernelSU"
+          fi
+          if [ -d "./drivers/kernelsu" ]; then
+            rm -rf "./drivers/kernelsu"
+          fi
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main   
     - name: Kernel Build
       run: ./build.sh d2x N
     - name: Upload Kernel Zip
